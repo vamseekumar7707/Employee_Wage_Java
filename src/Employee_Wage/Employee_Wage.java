@@ -5,6 +5,7 @@ public class Employee_Wage {
         int y = (int) Math.round(x);
         return y;
    	 }
+	 //UC1
 	 public static String presenteeCheckForEmployee(int value){
 	        if(value==1){
 	            return "Employee is Present" ;
@@ -13,6 +14,11 @@ public class Employee_Wage {
 	            return "Employee is Absent" ;
 	        }
 	    } 
+	//use case 2
+     public static int calculateEmpDailyWage( int wagePerHour, int workingHrs ){
+    	 
+        return ( wagePerHour * workingHrs );
+    }
 	 
 	 
 	 public static void main(String args[]) {
@@ -22,5 +28,12 @@ public class Employee_Wage {
       int randomValue = generateRandomNumber();
       String presenteeCheck = presenteeCheckForEmployee(randomValue);
       System.out.println(presenteeCheck);
+      if(randomValue==1)
+      {
+    //use case 2
+	int empDailyWage = calculateEmpDailyWage(20,8);
+
+      System.out.println("Employees Daily Wage : "+empDailyWage);
+      }
 	}
 }
