@@ -70,6 +70,12 @@ public class Employee_Wage {
          }
          return workingDays;
      }
+ 	 //use case 5
+ 	public static int calculateMonthlyWage (int wagePerHour,int randomWorkingHrs ){
+         
+         int empMonthlyWage = randomWorkingHrs * 20 * wagePerHour;//20 being the umber of days in a month
+         return empMonthlyWage;
+     }
 	 public static void main(String args[]) {
        
       System.out.println("Welcome To Employee Wage Calculation Problem");
@@ -89,7 +95,10 @@ public class Employee_Wage {
     //use case 4
   	int randomWorkHrs = generateWorkHours(randomValue+2);
         System.out.println("Randomly generated Work Hours is : "+randomWorkHrs);
-      
+      //use case 5
+    	int empMonthlyWage = calculateMonthlyWage(20,randomWorkHrs);
+          System.out.println("Monthly Wage Of an Employee is : "+empMonthlyWage);
+
       }
 	}
 }
