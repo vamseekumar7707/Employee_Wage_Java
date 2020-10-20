@@ -1,5 +1,10 @@
 package Employee_Wage;
 public class Employee_Wage {
+    //declaring the class variables(use case 6)
+    static int MAX_WORKING_DAYS = 20;
+    static int MAX_WORKING_HOURS = 100;
+    static int EMPLOYEE_PER_HOUR_WAGE = 20;
+   
 	 public static int generateRandomNumber(){
          double x=Math.random();
         int y = (int) Math.round(x);
@@ -76,6 +81,36 @@ public class Employee_Wage {
          int empMonthlyWage = randomWorkingHrs * 20 * wagePerHour;//20 being the umber of days in a month
          return empMonthlyWage;
      }
+ 	 //use case 6
+ 		//calculation till the condition of 100 working Hours and 20 working days is reached
+public static int conditionalEmpWageCalculational(){
+        
+        int totalWorkingDays = 0;
+        int totalWorkingHrs = 0;
+        int EMP_WORK_HOURS = 0;
+        int EMP_WORK_DAYS = 0;
+        int oldWage = 0;
+        
+        int value = 0;
+        int empWage = 0;
+        
+        while ( (EMP_WORK_HOURS < MAX_WORKING_HOURS) || (EMP_WORK_DAYS < MAX_WORKING_DAYS) ){
+            
+            value = generateRandomNumber();
+            
+            totalWorkingDays = generateRandomWorkDays(value+1);
+            totalWorkingHrs = generateWorkHours(value+1); 
+            
+            empWage = oldWage + (totalWorkingDays * totalWorkingHrs * EMPLOYEE_PER_HOUR_WAGE);
+            oldWage = empWage;
+            
+            EMP_WORK_HOURS = EMP_WORK_HOURS + totalWorkingHrs;
+            EMP_WORK_DAYS = EMP_WORK_DAYS + totalWorkingDays;
+            
+        }
+        
+        return empWage;
+    }
 	 public static void main(String args[]) {
        
       System.out.println("Welcome To Employee Wage Calculation Problem");
@@ -98,7 +133,9 @@ public class Employee_Wage {
       //use case 5
     	int empMonthlyWage = calculateMonthlyWage(20,randomWorkHrs);
           System.out.println("Monthly Wage Of an Employee is : "+empMonthlyWage);
-
-      }
+          //use case 6
+          int conditionalEmpWageCalculated = conditionalEmpWageCalculational();
+          System.out.println("The Conditional Wage Of an Employee is : "+conditionalEmpWageCalculated);
+       }
 	}
 }
