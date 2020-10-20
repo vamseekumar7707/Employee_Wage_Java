@@ -20,7 +20,19 @@ public class Employee_Wage {
         return ( wagePerHour * workingHrs );
     }
 	 
-	 
+   //use case 3
+     public static String calculateWageCalculationForPartTimeEmps (){
+        
+        int random = generateRandomNumber();
+        int wagePerHour = 20;
+        int partTimeEmpWage = 0;
+        if(random ==1 ){
+            partTimeEmpWage = (random+8) * 20 * wagePerHour;//20 being the number of days in a month
+            return "Employee is a Part Time Employee and the wage is :"+partTimeEmpWage;
+        }else{
+            return "Employee is not a Part Time Employee ";
+        }
+    }
 	 public static void main(String args[]) {
        
       System.out.println("Welcome To Employee Wage Calculation Problem");
@@ -34,6 +46,10 @@ public class Employee_Wage {
 	int empDailyWage = calculateEmpDailyWage(20,8);
 
       System.out.println("Employees Daily Wage : "+empDailyWage);
+      //use case 3
+      String wageForPartTimeEmp = calculateWageCalculationForPartTimeEmps();
+      System.out.println("Employees Part Time Wage : "+wageForPartTimeEmp);
+
       }
 	}
 }
